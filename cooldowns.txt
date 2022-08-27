@@ -1,0 +1,4 @@
+fish: 40s
+hunt: 40s
+dig: 40s
+work: 1h
