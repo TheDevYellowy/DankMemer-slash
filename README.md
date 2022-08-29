@@ -1,5 +1,3 @@
-# DankMemer-slash
-
 <h2>I have to say this but selfbots are against Discords T.O.S and I am in no way responsible for your account</h2><br>
 
 ## Settings
@@ -15,4 +13,11 @@ The program will make the settings file automatically on the first startup
     "safe": true // A safemode verson of the bot all it does is remove the crime command so you don't die
 }
 ```
+</details>
+</br>
+
+## Current Issues
+<details open>
+<summary><strong>Click Me</strong></summary>
+- [ ] Sometimes buttons won't be clicked
 </details>
