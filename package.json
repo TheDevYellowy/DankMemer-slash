@@ -1,11 +1,12 @@
 {
   "name": "DankMemer-slash",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "src/index.js",
   "repository": "https://github.com/TheDevYellowy/DankMemer-slash.git",
   "author": "Yellowy <64450187+TheDevYellowy@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
     "discord.js-selfbot-v13": "^2.6.7"
   }
 }

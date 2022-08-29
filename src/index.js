@@ -5,7 +5,10 @@ const { startSimpleFarm } = require('./util/farm');
 const alert = require('./util/alert');
 
 const client = new Client();
-require('./util/antiCrash')();
+(async () => {
+    await require('./util/checkUpdate')();
+    require('./util/antiCrash')();
+})();
 
 client.on('messageCreate', async (message) => {
     try {
