@@ -15,7 +15,7 @@ module.exports = class a extends Client {
      */
     async getSettings() {
         if(!fs.existsSync(path.join(process.cwd(), 'settings.json'))) {
-            fs.writeFileSync(path.join(process.cwd(), 'settings.json'), JSON.stringify({ token: '', channelId: '', safe: true }, null, 4));
+            fs.writeFileSync(path.join(process.cwd(), 'settings.json'), JSON.stringify({ token: '', channelId: '', webhookURL: '', safe: true }, null, 4));
             throw 'Settings created please fill it out';
         } else {
             this.config = require(path.join(process.cwd(), 'settings.json'));

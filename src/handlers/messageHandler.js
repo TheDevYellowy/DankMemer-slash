@@ -9,7 +9,7 @@ module.exports = async (message, action, client) => {
     client.lastAction = '';
     const embed = message.embeds[0];
     const components = message.components[0]?.components;
-    const len = components.length;
+    const len = components?.length;
     let customId;
     if(!embed?.description) return; // Very crude way to fix this problem need to think of a better fix
     let item = embed.description.includes('**') ? embed.description.split('**')[1].split(">")[1] : null;
