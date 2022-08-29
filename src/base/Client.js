@@ -9,6 +9,7 @@ module.exports = class Farmer extends Client {
 
         this.config = null;
         this.lastAction = '';
+        this.queue = [];
     }
 
     /**
@@ -25,7 +26,8 @@ module.exports = class Farmer extends Client {
     }
 
     async start() {
-        await this.getSettings();
+        this.getSettings();
         await this.login(this.config.token);
+        this.channel = await this.channels.fetch(this.config.channelId);
     }
 }

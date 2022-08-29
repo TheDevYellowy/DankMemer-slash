@@ -8,7 +8,7 @@ The program will make the settings file automatically on the first startup
 ```json
 {
     "token": "", // the token of the account I will add multi token support soon
-    "channel": "", // the id of the channel you want to send the slash commands to
+    "channelId": "", // the id of the channel you want to send the slash commands to
     "webhookID": "", // mostly used for debugging purposes but I may do something
     "safe": true // A safemode verson of the bot all it does is remove the crime command so you don't die
 }

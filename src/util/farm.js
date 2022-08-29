@@ -10,33 +10,43 @@ const { setTimeout: sleep } = require('node:timers/promises');
 async function startSimpleFarm(client, channel) {
     console.log('Starting Simple Farm in 40 seconds');
     setInterval(async () => {
-        channel.sendSlash('270904126974590976', 'fish');
-        client.lastAction = 'Fish';
+        client.queue.push({
+            action: 'Fish',
+            command: 'fish'
+        });
         await sleep(5000);
     }, (second*40));
     await sleep(5000);
     setInterval(async () => {
-        channel.sendSlash('270904126974590976', 'dig');
-        client.lastAction = 'Dig';
+        client.queue.push({
+            action: 'Dig',
+            command: 'dig'
+        });
         await sleep(5000);
     }, (second*40));
     await sleep(5000);
     setInterval(async () => {
-        channel.sendSlash('270904126974590976', 'hunt');
-        client.lastAction = 'Hunt';
+        client.queue.push({
+            action: 'Hunt',
+            command: 'hunt'
+        });
         await sleep(5000);
     }, (second*40));
     await sleep(5000);
     setInterval(async () => {
-        channel.sendSlash('270904126974590976', 'postmemes');
-        client.lastAction = 'Postmemes';
+        client.queue.push({
+            action: 'Postmemes',
+            command: 'postmemes'
+        });
         await sleep(5000);
     }, (second*50));
     await sleep(5000);
     if(!client.config.safe) {
         setInterval(async () => {
-            channel.sendSlash('270904126974590976', 'crime');
-            client.lastAction = 'Crime';
+            client.queue.push({
+                action: 'Crime',
+                command: 'crime'
+            });
             await sleep(5000);
         }, (second*45));
     }

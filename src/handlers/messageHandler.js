@@ -18,12 +18,13 @@ module.exports = async (message, action, client) => {
 
     switch(action.toLowerCase()) {
         case 'crime':
+            if(len == NaN) break;
             customId = components[random(len)].customId;
-            message.clickButton(customId);
-            break;
+            return await message.clickButton(customId);
         case 'postmemes':
+            if(len == NaN) break;
             customId = components[random(len)].customId;
-            return message.clickButton(customId);
+            return await message.clickButton(customId);
 
         case '': break;
         
