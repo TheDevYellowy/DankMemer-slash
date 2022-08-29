@@ -27,6 +27,12 @@ async function startSimpleFarm(client, channel) {
         await sleep(5000);
     }, (second*40));
     await sleep(5000);
+    setInterval(async () => {
+        channel.sendSlash('270904126974590976', 'postmemes');
+        client.lastAction = 'Postmemes';
+        await sleep(5000);
+    }, (second*40));
+    await sleep(5000);
     if(!client.config.safe) {
         setInterval(async () => {
             channel.sendSlash('270904126974590976', 'crime');

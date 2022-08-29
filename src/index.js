@@ -10,13 +10,12 @@ client.on('messageCreate', async (message) => {
     try {
         if(![client.user.id, '270904126974590976'].includes(message.author.id)) return;
         if(message.flags.has("EPHEMERAL")) return;
-        if(message.channel.type == 'DM') return;
+        if(message.channel.type == 'DM') require('./handlers/DMHandler')(message);
 
         if(client.lastAction == '') return;
         if(message.embeds.length == 0) return;
 
-        require('./handlers/messageHandler')(message, client.lastAction);
-        client.lastAction = '';
+        require('./handlers/messageHandler')(message, client.lastAction, client);
     } catch (error) {
         console.log(message);
         console.error(error);
