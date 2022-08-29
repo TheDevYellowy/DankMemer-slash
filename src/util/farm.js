@@ -2,6 +2,7 @@ const { TextChannel } = require('discord.js-selfbot-v13')
 const Client = require('../base/Client');
 const { second, minute, hour, day } = require('./times');
 const { setTimeout: sleep } = require('node:timers/promises');
+
 /**
  * @param {Client} client
  * @param {TextChannel} channel 
@@ -26,11 +27,13 @@ async function startSimpleFarm(client, channel) {
         await sleep(5000);
     }, (second*40));
     await sleep(5000);
-    setInterval(async () => {
-        channel.sendSlash('270904126974590976', 'crime');
-        client.lastAction = 'Crime';
-        await sleep(5000);
-    }, (second*45));
+    if(!client.config.safe) {
+        setInterval(async () => {
+            channel.sendSlash('270904126974590976', 'crime');
+            client.lastAction = 'Crime';
+            await sleep(5000);
+        }, (second*45));
+    }
 }
 
 module.exports = {
