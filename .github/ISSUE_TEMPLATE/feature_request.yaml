@@ -1,0 +1,17 @@
+name: Feature Request
+description: Request a new feature
+lables: [Feature]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature
+      description: A clear and concise description of what you want added.
+      placeholder: I think it would be a cool idea if you add...
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Other context
+      description: Any other context, screenshots, or file uploads that help us understand your feature request.
