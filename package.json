@@ -6,7 +6,7 @@
   "author": "Yellowy <64450187+TheDevYellowy@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.2.0",
     "discord.js-selfbot-v13": "^2.6.7"
   }
 }
