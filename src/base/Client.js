@@ -18,7 +18,8 @@ module.exports = class Farmer extends Client {
     async getSettings() {
         if(!fs.existsSync(path.join(process.cwd(), 'settings.json'))) {
             fs.writeFileSync(path.join(process.cwd(), 'settings.json'), JSON.stringify({ token: '', channelId: '', webhookURL: '', safe: true }, null, 4));
-            throw `Settings created at ${process.cwd()}${sep}settings.json`;
+            console.error(new Error(`Settings created at ${process.cwd()}${sep}settings.json`));
+            return process.exit();
         } else {
             this.config = require(path.join(process.cwd(), 'settings.json'));
             return;
