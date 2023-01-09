@@ -106,4 +106,5 @@ dist
 # custom files
 settings.json
 yarn.lock
+package-lock.json
 test.js
