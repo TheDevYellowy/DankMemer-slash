@@ -5,11 +5,10 @@ const path = require('path');
 
 module.exports = class Farmer extends Client {
     constructor() {
-        super({ DMSync: false, checkUpdate: false, patchVoice: false });
+        super({ DMSync: false, checkUpdate: false, patchVoice: false, partials: ['MESSAGE'] });
 
         this.config = null;
-        this.lastAction = '';
-        this.queue = [];
+        this.queue = ['fish', 'hunt', 'dig'];
     }
 
     /**
@@ -17,8 +16,8 @@ module.exports = class Farmer extends Client {
      */
     async getSettings() {
         if(!fs.existsSync(path.join(process.cwd(), 'settings.json'))) {
-            fs.writeFileSync(path.join(process.cwd(), 'settings.json'), JSON.stringify({ token: '', channelId: '', webhookURL: '', safe: true }, null, 4));
-            console.error(new Error(`Settings created at ${process.cwd()}${sep}settings.json`));
+            fs.writeFileSync(path.join(process.cwd(), 'settings.json'), JSON.stringify({ token: '', channelId: '', safe: true }, null, 4));
+            console.log(`Settings created at ${process.cwd()}${sep}settings.json please fill it out before starting again`);
             return process.exit();
         } else {
             this.config = require(path.join(process.cwd(), 'settings.json'));
@@ -29,6 +28,5 @@ module.exports = class Farmer extends Client {
     async start() {
         this.getSettings();
         await this.login(this.config.token);
-        this.channel = await this.channels.fetch(this.config.channelId);
     }
 }
