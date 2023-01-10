@@ -1,11 +1,11 @@
 console.clear();
 
 const client = new (require('./classes/Client'))();
-const { startSimpleFarm } = require('./util/farm');
+const { startSimpleFarm } = require('./src/util/farm');
 
 (async () => {
-    await require('../src/util/checkUpdate')();
-    require('../src/util/antiCrash')();
+    await require('./src/util/checkUpdate')();
+    require('./src/util/antiCrash')();
     await client.start();
 })();
 
@@ -26,7 +26,7 @@ client.on('ready', async () => {
             let filter = m => m.author.id === '270904126974590976';
             channel.awaitMessages({ filter, max: 1, time: 3_000 }).then(async (_) => {
                 let msg = _.first();
-                await require('./util/command')(msg, cmd);
+                await require('./src/util/command')(msg, cmd);
             });
 
             client.queue.shift();
